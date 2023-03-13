@@ -7,4 +7,4 @@ export const APIBuilder = {
   },
 };
 
-export type APIInstance = ReturnType<(typeof API)['createInstance']>;
+export type APIInstance = ReturnType<(typeof APIBuilder)['createInstance']>;
