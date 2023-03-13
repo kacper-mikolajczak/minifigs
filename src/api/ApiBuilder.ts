@@ -1,7 +1,7 @@
 import axios from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
 
-export const API = {
+export const APIBuilder = {
   createInstance(...params: Parameters<typeof axios.create>) {
     return applyCaseMiddleware(axios.create(...params));
   },
