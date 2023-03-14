@@ -5,33 +5,36 @@ import {DatePicker} from '@components/form/datePicker/DatePicker';
 import {FormField} from '@components/form/form/FormField';
 import {Input} from '@components/form/input/Input';
 import {Select} from '@components/form/select/Select';
+import {useTranslation} from 'react-i18next';
 
 export const ShippingInfoForm = () => {
+  const [t] = useTranslation();
+
   return (
     <View style={styles.formContainer}>
       <FormField
         name="firstName"
-        label="First name"
+        label={t('shippingForm.labels.firstName')}
         render={({field}) => <Input {...field} />}
       />
       <FormField
         name="lastName"
-        label="Last name"
+        label={t('shippingForm.labels.lastName')}
         render={({field}) => <Input {...field} />}
       />
       <FormField
         name="email"
-        label="Email"
+        label={t('shippingForm.labels.email')}
         render={({field}) => <Input {...field} inputMode="email" />}
       />
       <FormField
         name="phoneNumber"
-        label="Phone Number"
+        label={t('shippingForm.labels.phoneNumber')}
         render={({field}) => <Input {...field} inputMode="tel" />}
       />
       <FormField
         name="dateOfBirth"
-        label="Date of birth"
+        label={t('shippingForm.labels.dateOfBirth')}
         render={({field}) => (
           <DatePicker
             mode="date"
@@ -43,17 +46,17 @@ export const ShippingInfoForm = () => {
       />
       <FormField
         name="street"
-        label="Street"
+        label={t('shippingForm.labels.street')}
         render={({field}) => <Input {...field} />}
       />
       <FormField
         name="city"
-        label="City"
+        label={t('shippingForm.labels.city')}
         render={({field}) => <Input {...field} />}
       />
       <FormField
         name="state"
-        label="State"
+        label={t('shippingForm.labels.state')}
         render={({field}) => (
           <Select
             {...field}
@@ -64,7 +67,7 @@ export const ShippingInfoForm = () => {
       />
       <FormField
         name="zipCode"
-        label="Zip code"
+        label={t('shippingForm.labels.zipCode')}
         render={({field}) => <Input {...field} inputMode="numeric" />}
       />
     </View>

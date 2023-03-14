@@ -19,7 +19,7 @@
     },
     "email": "This is not an email address",
     "phoneNumber": "I am afraid it is not an US phone number. Please use XXX-XXX-XXXX format.",
-    "dob": "Are you a time traveller?",
+    "dateOfBirth": "Are you a time traveller?",
     "street": {
       "min": "Provide your street name",
       "max": "Street name cannot be longer than {{length}}"
@@ -28,6 +28,17 @@
       "min": "Provide your city name",
       "max": "City name cannot be longer than {{length}}"
     },
-    "zipCode": "Invalid ZIP code format. Expected format: XXXXX or XXXXX-XXXX"
+    "zipCode": "Invalid ZIP code format. Expected format: XXXXX or XXXXX-XXXX",
+    "labels": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phoneNumber": "Phone number",
+      "dateOfBirth": "Date of birth",
+      "street": "Street",
+      "city": "City",
+      "state": "State",
+      "zipCode": "Zip code"
+    }
   }
 }

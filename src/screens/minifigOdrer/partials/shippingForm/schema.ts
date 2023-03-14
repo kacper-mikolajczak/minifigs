@@ -17,7 +17,7 @@ export const shippingInfoSchema: z.ZodType<Domain.UserShippingInfo> = z.object({
       /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/,
       i18n.t('shippingForm.phoneNumber'),
     ),
-  dateOfBirth: z.date().max(new Date(), i18n.t('shippingForm.dob')),
+  dateOfBirth: z.date().max(new Date(), i18n.t('shippingForm.dateOfBirth')),
   street: z
     .string()
     .min(1, i18n.t('shippingForm.street.min'))
