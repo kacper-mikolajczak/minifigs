@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@api/*": ["src/api/*"],
@@ -10,7 +11,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@tests/*": ["src/tests/*"],
       "@screens/*": ["src/screens/*"],
-      "@navigators/*": ["src/navigators/*"]
+      "@navigators/*": ["src/navigators/*"],
+      "@loaders/*": ["src/loaders/*"]
     }
   }
 }
