@@ -1,7 +1,7 @@
 /**
  * @format
  */
-
+import './i18n';
 import {checkEnv} from '@config/env.config';
 import {AppRegistry} from 'react-native';
 import {App} from './App';
