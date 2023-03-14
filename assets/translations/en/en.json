@@ -1,3 +1,11 @@
 {
-  "test-text": "This is a test text"
+  "test-text": "This is a test text",
+  "minifigPreview": {
+    "showDetails": "Show details",
+    "screenTitle": "Personal details",
+    "drawAgain": "Draw again",
+    "noPreview": "No preview",
+    "previewLoading": "Loading...",
+    "previewLabel": "Picture of {{name}}"
+  }
 }

@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-drop-shadow/index.d.ts b/node_modules/react-native-drop-shadow/index.d.ts
+index 9fe20f6..8f2a933 100644
+--- a/node_modules/react-native-drop-shadow/index.d.ts
++++ b/node_modules/react-native-drop-shadow/index.d.ts
+@@ -3,7 +3,7 @@ import * as RN from "react-native";
+ 
+ export interface PropsView extends RN.ViewProps {}
+ declare class DropShadowComponent extends React.Component<PropsView> {}
+-declare const DropShadowBase: RN.Constructor<RN.NativeMethodsMixin> &
++declare const DropShadowBase: RN.NativeMethods &
+   typeof DropShadowComponent;
+ 
+ export default class DropShadow extends DropShadowBase {}
