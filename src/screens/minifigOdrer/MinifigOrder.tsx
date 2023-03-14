@@ -2,8 +2,17 @@ import {ScrollView, StyleSheet} from 'react-native';
 import {Heading} from '@components/typography/heading/Heading';
 import {useTranslation} from 'react-i18next';
 import {RandomMinifigPreview} from './partials/randomMinifigPreview/RandomMinifigPreview';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '@navigators/RootNavigator/RootNavigator';
 
-export const MinifigOrderScreen = () => {
+type MinifigOrderScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'MinifigOrder'
+>;
+
+export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
+  const {search} = route.params;
+
   return (
     <ScrollView style={styles.container}>
       <ScreenTitle />
