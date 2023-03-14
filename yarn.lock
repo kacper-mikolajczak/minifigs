@@ -1756,6 +1756,19 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
+"@tanstack/query-core@4.26.1":
+  version "4.26.1"
+  resolved "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.26.1.tgz"
+  integrity sha512-Zrx2pVQUP4ndnsu6+K/m8zerXSVY8QM+YSbxA1/jbBY21GeCd5oKfYl92oXPK0hPEUtoNuunIdiq0ZMqLos+Zg==
+
+"@tanstack/react-query@4.26.1":
+  version "4.26.1"
+  resolved "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.26.1.tgz"
+  integrity sha512-i3dnz4TOARGIXrXQ5P7S25Zfi4noii/bxhcwPurh2nrf5EUCcAt/95TB2HSmMweUBx206yIMWUMEQ7ptd6zwDg==
+  dependencies:
+    "@tanstack/query-core" "4.26.1"
+    use-sync-external-store "^1.2.0"
+
 "@testing-library/react-native@11.5.4":
   version "11.5.4"
   resolved "https://registry.npmjs.org/@testing-library/react-native/-/react-native-11.5.4.tgz"
@@ -7567,7 +7580,7 @@ use-latest-callback@^0.1.5:
   resolved "https://registry.npmjs.org/use-latest-callback/-/use-latest-callback-0.1.5.tgz"
   integrity sha512-HtHatS2U4/h32NlkhupDsPlrbiD27gSH5swBdtXbCAlc6pfOFzaj0FehW/FO12rx8j2Vy4/lJScCiJyM01E+bQ==
 
-use-sync-external-store@^1.0.0:
+use-sync-external-store@^1.0.0, use-sync-external-store@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
