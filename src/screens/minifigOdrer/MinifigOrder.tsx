@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 32,
   },
-  submitButton: {
-    marginVertical: 24,
-  },
 });
 
 const ScreenTitle = () => {
