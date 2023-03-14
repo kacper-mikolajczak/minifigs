@@ -1,7 +1,7 @@
 import i18n from 'i18n';
 import {z} from 'zod';
 
-export const shippingInfoSchema: z.ZodType<Domain.UserShippingInfo> = z.object({
+export const shippingFormSchema: z.ZodType<Domain.UserShippingInfo> = z.object({
   firstName: z
     .string()
     .min(1, i18n.t('shippingForm.firstName.min'))

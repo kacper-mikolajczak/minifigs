@@ -7,7 +7,7 @@ import {Input} from '@components/form/input/Input';
 import {Select} from '@components/form/select/Select';
 import {useTranslation} from 'react-i18next';
 
-export const ShippingInfoForm = () => {
+export const ShippingForm = () => {
   const [t] = useTranslation();
 
   return (
@@ -60,7 +60,7 @@ export const ShippingInfoForm = () => {
         render={({field}) => (
           <Select
             {...field}
-            options={statesOptions}
+            options={statesOptions ?? []}
             keyExtractor={({value}) => value}
           />
         )}

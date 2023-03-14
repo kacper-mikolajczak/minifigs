@@ -6,6 +6,9 @@ import {RandomMinifigPreview} from './partials/randomMinifigPreview/RandomMinifi
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@navigators/RootNavigator/RootNavigator';
 import {useRandomMinifigQuery} from '@loaders/queries/minifigs/useRandomMinifigQuery';
+import {ShippingForm} from './partials/shippingForm/ShippingForm';
+import {Form, useZodForm} from '@components/form/form/Form';
+import {shippingFormSchema} from './partials/shippingForm/schema';
 
 type MinifigOrderScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -14,6 +17,8 @@ type MinifigOrderScreenProps = NativeStackScreenProps<
 
 export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
   const {search} = route.params;
+
+  const shippingForm = useZodForm({schema: shippingFormSchema, mode: 'onBlur'});
 
   const randomMinifigQuery = useRandomMinifigQuery(search);
 
@@ -24,6 +29,9 @@ export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
         minifig={randomMinifigQuery.data}
         onDraw={randomMinifigQuery.refetch}
       />
+      <Form form={shippingForm}>
+        <ShippingForm />
+      </Form>
     </ScrollView>
   );
 };
