@@ -15,6 +15,7 @@ module.exports = {
           '@tests': ['./src/tests'],
           '@screens': ['./src/screens'],
           '@navigators': ['./src/navigators'],
+          '@loaders': ['./src/loaders'],
         },
       },
     ],
