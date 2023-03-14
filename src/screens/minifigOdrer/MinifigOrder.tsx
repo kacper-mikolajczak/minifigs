@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {RandomMinifigPreview} from './partials/randomMinifigPreview/RandomMinifigPreview';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@navigators/RootNavigator/RootNavigator';
-import {useRandomMinifigQuery} from 'src/loaders/queries/minifigs/useRandomMinifigQuery';
+import {useRandomMinifigQuery} from '@loaders/queries/minifigs/useRandomMinifigQuery';
 
 type MinifigOrderScreenProps = NativeStackScreenProps<
   RootStackParamList,
