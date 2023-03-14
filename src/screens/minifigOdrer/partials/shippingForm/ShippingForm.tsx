@@ -15,22 +15,30 @@ export const ShippingForm = () => {
       <FormField
         name="firstName"
         label={t('shippingForm.labels.firstName')}
-        render={({field}) => <Input {...field} />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} />
+        )}
       />
       <FormField
         name="lastName"
         label={t('shippingForm.labels.lastName')}
-        render={({field}) => <Input {...field} />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} />
+        )}
       />
       <FormField
         name="email"
         label={t('shippingForm.labels.email')}
-        render={({field}) => <Input {...field} inputMode="email" />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} inputMode="email" />
+        )}
       />
       <FormField
         name="phoneNumber"
         label={t('shippingForm.labels.phoneNumber')}
-        render={({field}) => <Input {...field} inputMode="tel" />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} inputMode="tel" />
+        )}
       />
       <FormField
         name="dateOfBirth"
@@ -47,12 +55,16 @@ export const ShippingForm = () => {
       <FormField
         name="street"
         label={t('shippingForm.labels.street')}
-        render={({field}) => <Input {...field} />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} />
+        )}
       />
       <FormField
         name="city"
         label={t('shippingForm.labels.city')}
-        render={({field}) => <Input {...field} />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} />
+        )}
       />
       <FormField
         name="state"
@@ -68,7 +80,9 @@ export const ShippingForm = () => {
       <FormField
         name="zipCode"
         label={t('shippingForm.labels.zipCode')}
-        render={({field}) => <Input {...field} inputMode="numeric" />}
+        render={({field: {onChange, ...props}}) => (
+          <Input {...props} onChangeText={onChange} inputMode="numeric" />
+        )}
       />
     </View>
   );
