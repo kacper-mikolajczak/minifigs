@@ -2,9 +2,10 @@
   "test-text": "This is a test text",
   "minifigPreview": {
     "showDetails": "Show details",
-    "imageLabel": "Picture of {{name}}",
-    "noPreview": "No preview",
     "screenTitle": "Personal details",
-    "drawAgain": "Draw again"
+    "drawAgain": "Draw again",
+    "noPreview": "No preview",
+    "previewLoading": "Loading...",
+    "previewLabel": "Picture of {{name}}"
   }
 }

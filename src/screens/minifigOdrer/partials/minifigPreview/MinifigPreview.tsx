@@ -2,6 +2,8 @@ import React, {Image, View, StyleSheet} from 'react-native';
 import DropShadow from 'react-native-drop-shadow';
 import {Text} from '@components/typography/text/Text';
 import {useTranslation} from 'react-i18next';
+import {useBooleanState} from '@hooks/useBooleanState/useBooleanState';
+import {useDebouncedValue} from '@hooks/useDebouncedValue/useDebouncedValue';
 
 type MinifigPreviewProps = {
   minifig: Domain.Minifig;
@@ -9,6 +11,7 @@ type MinifigPreviewProps = {
 
 export const MinifigPreview = ({minifig}: MinifigPreviewProps) => {
   const [t] = useTranslation();
+
   return (
     <DropShadow style={styles.dropShadow}>
       <View style={styles.content}>
@@ -30,6 +33,12 @@ type MinifigImageProps = {
 
 const MinifigImage = ({minifig}: MinifigImageProps) => {
   const [t] = useTranslation();
+  const [imageLoading, {set: startLoading, unset: endLoading}] =
+    useBooleanState(false);
+  const debouncedLoading = useDebouncedValue(imageLoading, 300);
+
+  const displayLoading = imageLoading && debouncedLoading;
+
   return (
     <View style={styles.minifigImgContainer}>
       {minifig.img ? (
@@ -37,12 +46,17 @@ const MinifigImage = ({minifig}: MinifigImageProps) => {
           source={{uri: minifig.img}}
           style={styles.minifigImg}
           resizeMode="contain"
-          accessibilityLabel={t('minifigPreview.imageLabel', {
+          accessibilityLabel={t('minifigPreview.previewLabel', {
             name: minifig.name,
           })}
+          onLoadStart={startLoading}
+          onLoadEnd={endLoading}
         />
       ) : (
-        <Text style={styles.noPreview}>{t('minifigPreview.noPreview')}</Text>
+        <Text style={styles.imgInfo}>{t('minifigPreview.noPreview')}</Text>
+      )}
+      {displayLoading && (
+        <Text style={styles.imgInfo}>{t('minifigPreview.previewLoading')}</Text>
       )}
     </View>
   );
@@ -69,6 +83,7 @@ const styles = StyleSheet.create({
   minifigImgContainer: {
     height: 150,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   minifigTitle: {
     color: 'black',
@@ -78,7 +93,7 @@ const styles = StyleSheet.create({
     color: 'orange',
     fontWeight: '700',
   },
-  noPreview: {
+  imgInfo: {
     color: 'black',
     fontWeight: '500',
     textTransform: 'uppercase',
