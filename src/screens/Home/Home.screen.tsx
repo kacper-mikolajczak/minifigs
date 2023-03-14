@@ -1,6 +1,8 @@
 import * as React from 'react';
+import {useTranslation} from 'react-i18next';
 import {Text} from 'react-native';
 
 export const HomeScreen = () => {
-  return <Text testID="test-text">This is a test home component</Text>;
+  const [t] = useTranslation();
+  return <Text testID="test-text">{t('test-text')}</Text>;
 };
