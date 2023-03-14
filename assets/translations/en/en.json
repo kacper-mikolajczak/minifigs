@@ -7,5 +7,27 @@
     "noPreview": "No preview",
     "previewLoading": "Loading...",
     "previewLabel": "Picture of {{name}}"
+  },
+  "shippingForm": {
+    "firstName": {
+      "min": "Provide your name",
+      "max": "First name cannot be longer than {{length}}"
+    },
+    "lastName": {
+      "min": "Provide your name",
+      "max": "Last name cannot be longer than {{length}}"
+    },
+    "email": "This is not an email address",
+    "phoneNumber": "I am afraid it is not an US phone number. Please use XXX-XXX-XXXX format.",
+    "dob": "Are you a time traveller?",
+    "street": {
+      "min": "Provide your street name",
+      "max": "Street name cannot be longer than {{length}}"
+    },
+    "city": {
+      "min": "Provide your city name",
+      "max": "City name cannot be longer than {{length}}"
+    },
+    "zipCode": "Invalid ZIP code format. Expected format: XXXXX or XXXXX-XXXX"
   }
 }
