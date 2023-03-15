@@ -1,21 +1,54 @@
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {Alert, ScrollView, StyleSheet} from 'react-native';
 import {Heading} from '@components/typography/heading/Heading';
 import {useTranslation} from 'react-i18next';
 import {RandomMinifigPreview} from './partials/randomMinifigPreview/RandomMinifigPreview';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@navigators/RootNavigator/RootNavigator';
-import {useRandomMinifigQuery} from '@loaders/queries/minifigs/useRandomMinifigQuery';
+import {useRandomMinifigQuery} from '@loaders/minifigs/queries/useRandomMinifigQuery';
+import {ShippingForm} from './partials/shippingForm/ShippingForm';
+import {Form, useZodForm} from '@components/form/form/Form';
+import {shippingFormSchema} from './partials/shippingForm/schema';
+import {useOrderMinifigMutation} from '@loaders/minifigs/mutations/useOrderMinifigMutation';
+import {Button} from '@components/buttons/button/Button';
 
 type MinifigOrderScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'MinifigOrder'
 >;
 
-export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
+export const MinifigOrderScreen = ({
+  navigation,
+  route,
+}: MinifigOrderScreenProps) => {
   const {search} = route.params;
+  const [t] = useTranslation();
+
+  const shippingForm = useZodForm({
+    schema: shippingFormSchema,
+    mode: 'onTouched',
+  });
 
   const randomMinifigQuery = useRandomMinifigQuery(search);
+  const orderMinifigMutation = useOrderMinifigMutation({
+    onSettled: () => {
+      pickNextMovie(nextSearch =>
+        navigation.navigate('MinifigOrder', {search: nextSearch}),
+      );
+    },
+  });
+
+  const handleSubmit = (shippingInfo: Domain.UserShippingInfo) => {
+    if (!randomMinifigQuery.data) return;
+    orderMinifigMutation.mutate({
+      shippingInfo,
+      setId: randomMinifigQuery.data.setId,
+    });
+  };
+
+  const submitDisabled =
+    (false && !shippingForm.formState.isValid) ||
+    orderMinifigMutation.isLoading;
 
   return (
     <ScrollView style={styles.container}>
@@ -23,6 +56,17 @@ export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
       <RandomMinifigPreview
         minifig={randomMinifigQuery.data}
         onDraw={randomMinifigQuery.refetch}
+        drawingDisabled={randomMinifigQuery.isFetching}
+      />
+      <Form form={shippingForm}>
+        <ShippingForm />
+      </Form>
+      <Button
+        text={t('minifigPreview.submit')}
+        variant="secondary"
+        disabled={submitDisabled}
+        onPress={shippingForm.handleSubmit(handleSubmit)}
+        wrapperProps={{style: styles.submitButton}}
       />
     </ScrollView>
   );
@@ -40,6 +84,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 32,
   },
+  submitButton: {
+    marginVertical: 24,
+  },
 });
 
 const ScreenTitle = () => {
@@ -49,4 +96,18 @@ const ScreenTitle = () => {
       {t('minifigPreview.screenTitle')}
     </Heading>
   );
+};
+
+// It's just an easter egg, it's almost April!
+const pickNextMovie = (cb: (choice: string) => void) => {
+  Alert.alert('Yay!', ' Choose your next movie', [
+    {
+      text: 'Batman',
+      onPress: () => cb('Batman'),
+    },
+    {
+      text: 'Harry Potter',
+      onPress: () => cb('Harry Potter'),
+    },
+  ]);
 };

@@ -4,7 +4,7 @@ import {
   UseQueryOptions,
 } from '@tanstack/react-query';
 import {RebrickableAPI} from '@api/rebrickable/rebrickable.api';
-import {minifigsQueryKeys, MinifigsQueryKeys} from './queryKeys';
+import {minifigsQueryKeys, MinifigsQueryKeys} from '../queryKeys';
 
 type QueryKey = [MinifigsQueryKeys['search']];
 type QueryFn = typeof queryFn;
