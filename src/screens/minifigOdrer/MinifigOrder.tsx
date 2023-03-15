@@ -30,7 +30,13 @@ export const MinifigOrderScreen = ({
   });
 
   const randomMinifigQuery = useRandomMinifigQuery(search);
-  const orderMinifigMutation = useOrderMinifigMutation();
+  const orderMinifigMutation = useOrderMinifigMutation({
+    onSettled: () => {
+      pickNextMovie(nextSearch =>
+        navigation.navigate('MinifigOrder', {search: nextSearch}),
+      );
+    },
+  });
 
   const handleSubmit = (shippingInfo: Domain.UserShippingInfo) => {
     if (!randomMinifigQuery.data) return;
@@ -90,4 +96,18 @@ const ScreenTitle = () => {
       {t('minifigPreview.screenTitle')}
     </Heading>
   );
+};
+
+// It's just an easter egg, it's almost April!
+const pickNextMovie = (cb: (choice: string) => void) => {
+  Alert.alert('Yay!', ' Choose your next movie', [
+    {
+      text: 'Batman',
+      onPress: () => cb('Batman'),
+    },
+    {
+      text: 'Harry Potter',
+      onPress: () => cb('Harry Potter'),
+    },
+  ]);
 };
