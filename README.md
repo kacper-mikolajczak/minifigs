@@ -48,3 +48,28 @@ I have tried my best to match provided design, while taking best practices into 
 
 2. Wrapper for controlling `RebrickableAPI`. **Reasoning**: It turns out, original API does not expose `random` endpoint for drawing Minifig. Having that said, such endpoint is emulated with usage of `lego/minifigs?search=` endpoint, which responses are cached with `search` param as a key, then served by picking randomly one of the items. This implementation reduces number of requests made to the actual API, while still preserving its async nature (keep in mind that cached results may come so quickly that it won't be noticed - if you willing to change that, just add `Sleep` utility into random endpoint)
 
+### Stack
+
+Current stack looks like this:
+1. RN + TS obviously :D
+2. Tests: `Jest` + `react-native-testing-library` + `MSW` (not used yet)
+3. API client: `axios` + `axios-case-converter`
+4. Server state management: `react-query`
+5. Env management: `react-native-config`
+6. Forms handling: `zod` + `react-hook-form` + `hookform/resolvers`
+7. i18n: `i18next`
+8. Navigation: `react-navigation`
+9. UI utilities: `react-native-date-picker` + `react-native-picker` + `react-native-drop-shadow`
+
+Thanks to all the magnificient souls that created this libraries. It always makes my life easier :)
+
+### To do
+
+It would be cool to implements this as well:
+
+1. Implementation of `Minifig Details` screen
+2. Error handling and network responses
+3. Integration tests for screens
+4. Unit tests for components, hooks and utils
+
+
