@@ -12,7 +12,7 @@ REBRICKABLE_API_KEY=d2feb084ce715f2ffb71522fc56c507a
 
 ### Caveats
 
-As I was not able to develop on Mac, this project is not set up for iOS devices. Please stick to Android, thanks! :)
+❗ As I was not able to develop on Mac, this project is not set up for iOS devices. Please stick to Android, thanks! :)
 
 ### Installation
 
