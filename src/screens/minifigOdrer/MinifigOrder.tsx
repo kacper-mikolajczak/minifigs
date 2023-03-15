@@ -18,7 +18,10 @@ type MinifigOrderScreenProps = NativeStackScreenProps<
 export const MinifigOrderScreen = ({route}: MinifigOrderScreenProps) => {
   const {search} = route.params;
 
-  const shippingForm = useZodForm({schema: shippingFormSchema, mode: 'onBlur'});
+  const shippingForm = useZodForm({
+    schema: shippingFormSchema,
+    mode: 'onTouched',
+  });
 
   const randomMinifigQuery = useRandomMinifigQuery(search);
 
