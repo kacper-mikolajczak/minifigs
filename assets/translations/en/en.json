@@ -6,7 +6,8 @@
     "drawAgain": "Draw again",
     "noPreview": "No preview",
     "previewLoading": "Loading...",
-    "previewLabel": "Picture of {{name}}"
+    "previewLabel": "Picture of {{name}}",
+    "submit": "Place an order"
   },
   "shippingForm": {
     "firstName": {
