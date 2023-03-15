@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {statesOptions} from '@assets/data/states/states';
+import {statesOptions} from '@assets/data/states/states.map';
 import {DatePicker} from '@components/form/datePicker/DatePicker';
 import {FormField} from '@components/form/form/FormField';
 import {Input} from '@components/form/input/Input';
@@ -69,10 +69,11 @@ export const ShippingForm = () => {
       <FormField
         name="state"
         label={t('shippingForm.labels.state')}
-        render={({field}) => (
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        render={({field: {ref, ...props}}) => (
           <Select
-            {...field}
-            options={statesOptions ?? []}
+            {...props}
+            options={statesOptions}
             keyExtractor={({value}) => value}
           />
         )}
