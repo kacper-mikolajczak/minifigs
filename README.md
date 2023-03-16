@@ -61,7 +61,7 @@ Current stack looks like this:
 8. Navigation: `react-navigation`
 9. UI utilities: `react-native-date-picker` + `react-native-picker` + `react-native-drop-shadow`
 
-Thanks to all the magnificient souls that created this libraries. It always makes my life easier :)
+Thanks to all the magnificient souls that created these libraries. It always makes my life easier :)
 
 ### To do
 
