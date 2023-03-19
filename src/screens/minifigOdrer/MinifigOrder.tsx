@@ -55,6 +55,7 @@ export const MinifigOrderScreen = ({
       <ScreenTitle />
       <RandomMinifigPreview
         minifig={randomMinifigQuery.data}
+        onDetailsPress={id => navigation.navigate('MinifigDetails', {id})}
         onDraw={randomMinifigQuery.refetch}
         drawingDisabled={randomMinifigQuery.isFetching}
       />
