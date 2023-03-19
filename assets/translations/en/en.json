@@ -41,5 +41,8 @@
       "state": "State",
       "zipCode": "Zip code"
     }
+  },
+  "minifigDetails": {
+    "goBack": "Go back"
   }
 }
