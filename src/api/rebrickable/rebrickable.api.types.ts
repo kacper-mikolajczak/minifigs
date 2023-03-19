@@ -23,3 +23,21 @@ export type SearchMinifigResponse =
 export type OrderMinifigRequestPayload = {
   shippingInfo: Domain.UserShippingInfo;
 } & Pick<Domain.Minifig, 'setId'>;
+
+type MinifigPartsResponseItemPart = {
+  partNum: string;
+  name: string;
+  partCatId: string;
+  partUrl: string;
+  partImgUrl: string;
+  externalIds: unknown; // Currently not in use
+};
+
+export type MinifigPartsResponseItem = {
+  id: string;
+  invPartId: string;
+  part: MinifigPartsResponseItemPart;
+  color: unknown; // Currently not in use
+};
+
+export type MinifigPartsResponse = PaginationResponse<MinifigPartsResponseItem>;

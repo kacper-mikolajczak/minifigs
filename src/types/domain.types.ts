@@ -6,6 +6,12 @@ declare global {
       img: string | null;
     };
 
+    type MinifigPart = {
+      id: string;
+      name: string;
+      img: string | null;
+    };
+
     type Address = {
       street: string;
       city: string;
