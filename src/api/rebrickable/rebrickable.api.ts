@@ -1,8 +1,12 @@
 import {ENV} from '@config/env.config';
 import {Sleep} from 'src/utils/Sleep';
 import {APIBuilder, APIInstance} from '../ApiBuilder';
-import {mapSearchMinifigResponseToMinifigs} from './rebrickable.api.map';
 import {
+  mapMinifigPartsResponseToMinifigParts,
+  mapSearchMinifigResponseToMinifigs,
+} from './rebrickable.api.map';
+import {
+  MinifigPartsResponse,
   OrderMinifigRequestPayload,
   SearchMinifigResponse,
 } from './rebrickable.api.types';
@@ -64,6 +68,17 @@ class RebrickableClient {
     // Fake API call
     await Sleep(1000);
     return {orderId: payload.setId + payload.shippingInfo.email};
+  }
+
+  public async getMinifigParts(setId: Domain.Minifig['setId']) {
+    const res = await this.client.get<MinifigPartsResponse>(
+      `lego/minifigs/${setId}/parts/`,
+    );
+
+    return {
+      ...res.data,
+      results: mapMinifigPartsResponseToMinifigParts(res.data),
+    };
   }
 }
 

@@ -1,4 +1,7 @@
-import {SearchMinifigResponse} from './rebrickable.api.types';
+import {
+  MinifigPartsResponse,
+  SearchMinifigResponse,
+} from './rebrickable.api.types';
 
 export function mapSearchMinifigResponseToMinifigs(
   res: SearchMinifigResponse,
@@ -7,5 +10,15 @@ export function mapSearchMinifigResponseToMinifigs(
     setId: item.setNum,
     name: item.name,
     img: item.setImgUrl,
+  }));
+}
+
+export function mapMinifigPartsResponseToMinifigParts(
+  res: MinifigPartsResponse,
+): Array<Domain.MinifigParts> {
+  return res.results.map(({part}) => ({
+    id: part.partNum,
+    name: part.name,
+    img: part.partImgUrl,
   }));
 }
