@@ -1,3 +1,4 @@
+import {PropsWithChildren} from 'react';
 import React, {Image, View, StyleSheet} from 'react-native';
 import DropShadow from 'react-native-drop-shadow';
 import {Text} from '@components/typography/text/Text';
@@ -5,13 +6,11 @@ import {useTranslation} from 'react-i18next';
 import {useBooleanState} from '@hooks/useBooleanState/useBooleanState';
 import {useDebouncedValue} from '@hooks/useDebouncedValue/useDebouncedValue';
 
-type MinifigPreviewProps = {
+type MinifigPreviewProps = PropsWithChildren<{
   minifig: Domain.Minifig;
-};
+}>;
 
-export const MinifigPreview = ({minifig}: MinifigPreviewProps) => {
-  const [t] = useTranslation();
-
+export const MinifigPreview = ({minifig, children}: MinifigPreviewProps) => {
   return (
     <DropShadow style={styles.dropShadow}>
       <View style={styles.content}>
@@ -19,9 +18,7 @@ export const MinifigPreview = ({minifig}: MinifigPreviewProps) => {
         <Text style={styles.minifigTitle} numberOfLines={1}>
           {minifig.name}
         </Text>
-        <Text style={styles.showMoreButton}>
-          {t('minifigPreview.showDetails')}
-        </Text>
+        {children}
       </View>
     </DropShadow>
   );
@@ -87,10 +84,6 @@ const styles = StyleSheet.create({
   },
   minifigTitle: {
     color: 'black',
-    fontWeight: '700',
-  },
-  showMoreButton: {
-    color: 'orange',
     fontWeight: '700',
   },
   imgInfo: {
