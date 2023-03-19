@@ -15,7 +15,7 @@ export function mapSearchMinifigResponseToMinifigs(
 
 export function mapMinifigPartsResponseToMinifigParts(
   res: MinifigPartsResponse,
-): Array<Domain.MinifigParts> {
+): Array<Domain.MinifigPart> {
   return res.results.map(({part}) => ({
     id: part.partNum,
     name: part.name,

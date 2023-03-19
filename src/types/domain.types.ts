@@ -6,7 +6,7 @@ declare global {
       img: string | null;
     };
 
-    type MinifigParts = {
+    type MinifigPart = {
       id: string;
       name: string;
       img: string | null;
