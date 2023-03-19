@@ -11,7 +11,8 @@ type QueryFn = typeof queryFn;
 type QueryFnRT = Awaited<ReturnType<QueryFn>>;
 const queryFn = async ({queryKey}: QueryFunctionContext<QueryKey>) => {
   const [{id}] = queryKey;
-  return RebrickableAPI.getMinifigParts(id);
+  const {results} = await RebrickableAPI.getMinifigParts(id);
+  return results;
 };
 
 export const useMinifigPartsQuery = <D = QueryFnRT>(
